@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HLV Muay Thái - Chuẩn Tiếng Việt</title>
+  <title>HLV Muay Thái - Southpaw</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #121212;
       color: #ffffff;
       text-align: center;
-      padding: 12px;
+      padding: 15px;
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -20,18 +20,18 @@
     }
     .status-badge {
       display: inline-block;
-      padding: 5px 14px;
+      padding: 6px 16px;
       border-radius: 20px;
       font-weight: 800;
-      font-size: 0.85rem;
-      margin: 0 auto 6px auto;
+      font-size: 0.9rem;
+      margin: 0 auto 8px auto;
       text-transform: uppercase;
       background: rgba(0, 230, 118, 0.2);
       color: #00e676;
       border: 1px solid #00e676;
     }
     .timer {
-      font-size: 4.2rem;
+      font-size: 4.5rem;
       font-weight: 900;
       margin: 0;
       color: #ffffff;
@@ -42,70 +42,64 @@
       background: #1e1e1e;
       border: 3px solid #ff3b30;
       border-radius: 16px;
-      padding: 16px 12px;
-      margin: 10px 0;
-      min-height: 100px;
+      padding: 20px 15px;
+      margin: 12px 0;
+      min-height: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 1.65rem;
+      font-size: 1.7rem;
       font-weight: 800;
       color: #ffd60a;
       box-shadow: 0 6px 20px rgba(255,59,48,0.2);
     }
     .counter-tag {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #999;
-      margin-top: 6px;
+      margin-top: 8px;
       font-weight: normal;
     }
     .controls {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       max-width: 440px;
       margin: 0 auto;
       width: 100%;
     }
     select, button {
-      padding: 12px;
-      font-size: 0.98rem;
-      border-radius: 10px;
+      padding: 14px;
+      font-size: 1.05rem;
+      border-radius: 12px;
       border: none;
       font-weight: bold;
     }
     select { background: #2c2c2e; color: #fff; text-align: center; }
-    .btn-row { display: flex; gap: 8px; }
+    .btn-row { display: flex; gap: 10px; }
     button { flex: 1; cursor: pointer; }
-    .btn-start { background: #ff3b30; color: white; font-size: 1.1rem; }
-    .btn-test { background: #0a84ff; color: white; flex: 0.5; }
+    .btn-start { background: #ff3b30; color: white; font-size: 1.2rem; }
     .btn-stop { background: #3a3a3c; color: white; }
-    .slider-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
     .slider-box {
       background: #1e1e1e;
-      padding: 8px 12px;
-      border-radius: 10px;
+      padding: 10px 15px;
+      border-radius: 12px;
       text-align: left;
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       color: #ddd;
     }
   </style>
 </head>
 <body>
 
-  <div id="statusBadge" class="status-badge">MỞ BẰNG APP EDGE ĐỂ NGHE GIỌNG CHUẨN NHẤT</div>
-  <h1 id="roundTitle" style="font-size:1.2rem; margin:0 0 4px 0;">HLV MUAY THÁI (SOUTHPAW)</h1>
+  <div id="statusBadge" class="status-badge">SẴN SÀNG TẬP LUYỆN</div>
+  <h1 id="roundTitle" style="font-size:1.3rem; margin:0 0 6px 0;">HLV MUAY THÁI (SOUTHPAW)</h1>
 
   <div class="timer" id="timer">03:00</div>
 
   <div class="combo-box" id="comboBox">
-    <div id="comboDisplay">Bấm "THỬ GIỌNG" để kiểm tra!</div>
-    <div class="counter-tag" id="comboCount">Phát âm chuẩn xác - Không ngọng chữ</div>
+    <div id="comboDisplay">Bấm "BẮT ĐẦU" để vào hiệp!</div>
+    <div class="counter-tag" id="comboCount">Nghỉ giữa lệnh: 1.5 giây</div>
   </div>
 
   <div class="controls">
@@ -116,23 +110,12 @@
       <option value="3">Hiệp 3: Chỏ, Gối & Phản công</option>
     </select>
 
-    <select id="voiceSelect">
-      <option value="">Đang tải giọng đọc chuẩn...</option>
-    </select>
-
-    <div class="slider-grid">
-      <div class="slider-box">
-        <label>Tốc độ: <strong id="rateVal" style="color:#ffd60a;">1.20</strong>x</label>
-        <input type="range" id="rateRange" min="0.9" max="1.5" step="0.05" value="1.20" style="width:100%; margin-top:5px;">
-      </div>
-      <div class="slider-box">
-        <label>Nghỉ giữa lệnh: <strong id="pauseVal" style="color:#00e676;">2.5</strong>s</label>
-        <input type="range" id="pauseRange" min="1.0" max="4.5" step="0.5" value="2.5" style="width:100%; margin-top:5px;">
-      </div>
+    <div class="slider-box">
+      <label>Nghỉ giữa 2 lệnh: <strong id="pauseVal" style="color:#00e676;">1.5</strong> giây</label>
+      <input type="range" id="pauseRange" min="1.0" max="3.5" step="0.5" value="1.5" style="width:100%; margin-top:6px;">
     </div>
 
     <div class="btn-row">
-      <button class="btn-test" onclick="testVoice()">THỬ GIỌNG</button>
       <button class="btn-start" id="startBtn" onclick="startSession()">BẮT ĐẦU</button>
       <button class="btn-stop" onclick="stopSession()">DỪNG</button>
     </div>
@@ -146,7 +129,7 @@
       4: "Hiệp 4: Thực chiến tổng hợp"
     };
 
-    // Khẩu lệnh đã tối ưu hóa văn bản để đọc cực kỳ rõ chữ
+    // Khẩu lệnh đã chuẩn hóa cho người thuận tay trái
     const combos = {
       1: [
         { text: "Một!", hits: 1 },
@@ -158,8 +141,7 @@
         { text: "Một Hai Ba!", hits: 3 },
         { text: "Hai Ba Hai!", hits: 3 },
         { text: "Lùi bước, Một Hai!", hits: 2 },
-        { text: "Một, đấm thẳng vào vùng bụng!", hits: 2 },
-        { text: "Lách đầu, Hai Ba!", hits: 2 }
+        { text: "Lách đầu sang phải, đấm Hai!", hits: 2 }
       ],
       2: [
         { text: "Một Hai, Đá trái!", hits: 3 },
@@ -179,18 +161,16 @@
         { text: "Đạp phải! Bước vào Hai, Chỏ phải!", hits: 3 },
         { text: "Ôm gáy, Hai cái gối trái!", hits: 2 },
         { text: "Đỡ chân! Hai Ba, Đá trái!", hits: 3 },
-        { text: "Đỡ chân! Hai, Chỏ phải, Gối trái!", hits: 3 }
+        { text: "Lách đầu sang phải, Hai Ba, Gối trái!", hits: 3 }
       ]
     };
     combos[4] = [...combos[1], ...combos[2], ...combos[3]];
 
     const WORK_TIME = 180;
     const REST_TIME = 60;
-    const PREP_TIME = 10;
 
     let currentRound = 1;
-    let isAutoMode = true;
-    let phase = "IDLE";
+    let phase = "WORK";
     let timeLeft = WORK_TIME;
     let deck = [];
     let countDone = 0;
@@ -200,27 +180,7 @@
     let isRunning = false;
     let audioCtx = null;
 
-    document.getElementById('rateRange').oninput = (e) => document.getElementById('rateVal').textContent = e.target.value;
     document.getElementById('pauseRange').oninput = (e) => document.getElementById('pauseVal').textContent = e.target.value;
-
-    function loadVoices() {
-      if (!('speechSynthesis' in window)) return;
-      const voices = window.speechSynthesis.getVoices();
-      const select = document.getElementById('voiceSelect');
-      const viVoices = voices.filter(v => v.lang.includes('vi') || v.lang.includes('VN'));
-      select.innerHTML = '';
-      (viVoices.length ? viVoices : voices.slice(0, 5)).forEach((v) => {
-        const opt = document.createElement('option');
-        opt.value = v.name;
-        opt.textContent = v.name;
-        if (v.name.includes('NamMinh') || v.name.includes('Natural') || v.name.includes('Linh')) opt.selected = true;
-        select.appendChild(opt);
-      });
-    }
-    if ('speechSynthesis' in window) {
-      loadVoices();
-      window.speechSynthesis.onvoiceschanged = loadVoices;
-    }
 
     function initAudio() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -229,7 +189,7 @@
 
     function playPadHits(count, callback) {
       initAudio();
-      const interval = 310;
+      const interval = 260; // Đánh nhanh hơn cho khớp nhịp 1.5s
       for (let i = 0; i < count; i++) {
         setTimeout(() => {
           const osc = audioCtx.createOscillator();
@@ -237,40 +197,32 @@
           osc.type = 'sine';
           const isHeavy = (i === count - 1 && count >= 3);
           osc.frequency.setValueAtTime(isHeavy ? 130 : 185, audioCtx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 0.12);
+          osc.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 0.1);
           gain.gain.setValueAtTime(isHeavy ? 0.95 : 0.7, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
           osc.connect(gain);
           gain.connect(audioCtx.destination);
           osc.start();
-          osc.stop(audioCtx.currentTime + 0.12);
-        }, 220 + i * interval);
+          osc.stop(audioCtx.currentTime + 0.1);
+        }, 180 + i * interval);
       }
-      setTimeout(() => { if (callback) callback(); }, 220 + count * interval);
+      setTimeout(() => { if (callback) callback(); }, 180 + count * interval);
     }
 
     function speak(text, callback) {
       window.speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'vi-VN';
-      utter.pitch = 0.95; // Giữ độ cao tự nhiên để không bị ngọng
-      utter.rate = parseFloat(document.getElementById('rateRange').value);
+      utter.pitch = 0.95;
+      utter.rate = 1.3; // Tốc độ đọc nhanh hơn một chút cho khớp nhịp ngắn
 
-      const selectedVoiceName = document.getElementById('voiceSelect').value;
       const voices = window.speechSynthesis.getVoices();
-      const chosen = voices.find(v => v.name === selectedVoiceName) || voices.find(v => v.lang.includes('vi'));
+      const chosen = voices.find(v => v.lang.includes('vi'));
       if (chosen) utter.voice = chosen;
 
       utter.onend = () => { if (callback) callback(); };
       utter.onerror = () => { if (callback) callback(); };
       window.speechSynthesis.speak(utter);
-    }
-
-    function testVoice() {
-      initAudio();
-      const sample = { text: "Một, đấm thẳng vào vùng bụng!", hits: 2 };
-      document.getElementById('comboDisplay').textContent = sample.text;
-      speak(sample.text, () => playPadHits(sample.hits));
     }
 
     function shuffleDeck(roundNum) {
@@ -286,27 +238,56 @@
       initAudio();
       isRunning = true;
       currentRound = 1;
+      phase = "WORK";
       timeLeft = WORK_TIME;
       document.getElementById('startBtn').textContent = "ĐANG TẬP...";
+      shuffleDeck(currentRound);
       nextLoop();
+
       timerInterval = setInterval(() => {
         timeLeft--;
         const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
         const s = String(timeLeft % 60).padStart(2, '0');
         document.getElementById('timer').textContent = `${m}:${s}`;
-        if (timeLeft <= 0) stopSession();
+
+        if (timeLeft <= 0) {
+          const isAuto = document.getElementById('modeSelect').value === 'auto';
+          if (phase === "WORK" && isAuto && currentRound < 4) {
+            phase = "REST";
+            timeLeft = REST_TIME;
+            clearTimeout(comboTimeout);
+            document.getElementById('statusBadge').textContent = `NGHỈ 1 PHÚT`;
+            document.getElementById('comboDisplay').textContent = "Hít thở sâu! Chuẩn bị hiệp sau!";
+            speak("Hết hiệp! Nghỉ một phút, hít thở sâu!");
+          } else if (phase === "REST") {
+            currentRound++;
+            phase = "WORK";
+            timeLeft = WORK_TIME;
+            document.getElementById('statusBadge').textContent = `HIỆP ${currentRound} / 4`;
+            shuffleDeck(currentRound);
+            nextLoop();
+          } else {
+            stopSession();
+            document.getElementById('comboDisplay').textContent = "HOÀN THÀNH BUỔI TẬP!";
+          }
+        }
       }, 1000);
     }
 
     function nextLoop() {
-      if (!isRunning) return;
-      const mode = document.getElementById('modeSelect').value;
-      const list = mode === 'auto' ? combos[currentRound] : combos[parseInt(mode)];
-      const item = list[Math.floor(Math.random() * list.length)];
+      if (!isRunning || phase !== "WORK") return;
+      if (deck.length === 0) shuffleDeck(currentRound);
+
+      const item = deck.pop();
+      countDone++;
+
       document.getElementById('comboDisplay').textContent = item.text;
+      document.getElementById('comboCount').textContent = `Hiệp ${currentRound} • Lệnh số ${countDone}`;
+
       speak(item.text, () => {
-        if (!isRunning) return;
+        if (!isRunning || phase !== "WORK") return;
         playPadHits(item.hits, () => {
+          if (!isRunning || phase !== "WORK") return;
           const pauseMs = parseFloat(document.getElementById('pauseRange').value) * 1000;
           comboTimeout = setTimeout(nextLoop, pauseMs);
         });
@@ -320,6 +301,11 @@
       window.speechSynthesis.cancel();
       document.getElementById('startBtn').textContent = "BẮT ĐẦU";
       document.getElementById('comboDisplay').textContent = "Đã dừng!";
+      document.getElementById('statusBadge').textContent = "SẴN SÀNG TẬP LUYỆN";
+    }
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
     }
   </script>
 </body>

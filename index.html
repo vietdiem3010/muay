@@ -3,29 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HLV Muay Thái Auto 4 Hiệp - Thuận Tay Trái</title>
+  <title>HLV Muay Thái Pro Audio - Thuận Tay Trái</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #121212;
       color: #ffffff;
       text-align: center;
-      padding: 15px;
+      padding: 12px;
       margin: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 94vh;
+      min-height: 95vh;
       user-select: none;
     }
     .status-badge {
       display: inline-block;
-      padding: 6px 16px;
+      padding: 5px 14px;
       border-radius: 20px;
       font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-      margin: 0 auto 8px auto;
+      font-size: 0.85rem;
+      margin: 0 auto 6px auto;
       text-transform: uppercase;
       background: #2c2c2e;
       color: #aaa;
@@ -34,11 +33,11 @@
     .status-rest { background: rgba(0, 230, 118, 0.2); color: #00e676; border: 1px solid #00e676; }
     .status-prep { background: rgba(255, 214, 10, 0.2); color: #ffd60a; border: 1px solid #ffd60a; }
 
-    h1 { color: #ffffff; font-size: 1.35rem; margin: 0 0 4px 0; }
+    h1 { color: #ffffff; font-size: 1.25rem; margin: 0 0 4px 0; }
     .timer {
-      font-size: 4.8rem;
+      font-size: 4.2rem;
       font-weight: 900;
-      margin: 2px 0;
+      margin: 0;
       color: #ffffff;
       font-variant-numeric: tabular-nums;
       line-height: 1.05;
@@ -47,86 +46,86 @@
       background: #1e1e1e;
       border: 3px solid #ff3b30;
       border-radius: 16px;
-      padding: 20px 15px;
-      margin: 12px 0;
-      min-height: 115px;
+      padding: 16px 12px;
+      margin: 10px 0;
+      min-height: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: 1.65rem;
-      font-weight: bold;
+      font-weight: 800;
       color: #ffd60a;
       box-shadow: 0 6px 20px rgba(255,59,48,0.2);
-      transition: border-color 0.3s;
     }
     .combo-box.rest-mode {
       border-color: #00e676;
       color: #00e676;
-      box-shadow: 0 6px 20px rgba(0,230,118,0.15);
     }
     .counter-tag {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: #999;
-      margin-top: 8px;
+      margin-top: 6px;
       font-weight: normal;
     }
     .controls {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       max-width: 440px;
       margin: 0 auto;
       width: 100%;
     }
-    select, button, input[type="range"] {
-      padding: 14px;
-      font-size: 1.02rem;
-      border-radius: 12px;
+    select, button {
+      padding: 12px;
+      font-size: 0.98rem;
+      border-radius: 10px;
       border: none;
       font-weight: bold;
     }
     select { background: #2c2c2e; color: #fff; text-align: center; }
-    .btn-row { display: flex; gap: 10px; }
-    button { flex: 1; cursor: pointer; transition: 0.15s; }
-    .btn-start { background: #ff3b30; color: white; font-size: 1.15rem; }
-    .btn-start:active { transform: scale(0.97); }
+    .btn-row { display: flex; gap: 8px; }
+    button { flex: 1; cursor: pointer; }
+    .btn-start { background: #ff3b30; color: white; font-size: 1.1rem; }
+    .btn-test { background: #0a84ff; color: white; flex: 0.5; }
     .btn-stop { background: #3a3a3c; color: white; }
+    .slider-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
     .slider-box {
       background: #1e1e1e;
-      padding: 10px 15px;
-      border-radius: 12px;
+      padding: 8px 12px;
+      border-radius: 10px;
       text-align: left;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: #ddd;
     }
     .round-dots {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin: 6px 0;
+      gap: 8px;
+      margin: 4px 0;
     }
-    .dot {
-      width: 42px;
-      height: 8px;
-      border-radius: 4px;
-      background: #333;
-      transition: 0.3s;
-    }
+    .dot { width: 38px; height: 7px; border-radius: 4px; background: #333; }
     .dot.active { background: #ff3b30; box-shadow: 0 0 8px #ff3b30; }
     .dot.done { background: #00e676; }
-    .legend {
-      margin-top: 12px;
-      font-size: 0.78rem;
-      color: #777;
-      line-height: 1.45;
+    .checkbox-row {
+      background: #1e1e1e;
+      padding: 10px 12px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
     }
   </style>
 </head>
 <body>
 
   <div id="statusBadge" class="status-badge">SẴN SÀNG TẬP LUYỆN</div>
-  <h1 id="roundTitle">CHẾ ĐỘ TỰ ĐỘNG 4 HIỆP (RẢNH TAY)</h1>
+  <h1 id="roundTitle">HLV MUAY THÁI - KHẨU LỆNH GẮT</h1>
 
   <div class="round-dots">
     <div class="dot" id="dot1"></div>
@@ -138,112 +137,121 @@
   <div class="timer" id="timer">03:00</div>
 
   <div class="combo-box" id="comboBox">
-    <div id="comboDisplay">Bấm "BẮT ĐẦU" rồi xỏ găng!</div>
-    <div class="counter-tag" id="comboCount">Có 10 giây chuẩn bị trước khi vào Hiệp 1</div>
+    <div id="comboDisplay">Bấm "THỬ GIỌNG" để chỉnh độ gắt!</div>
+    <div class="counter-tag" id="comboCount">Khẩu lệnh đã rút gọn chuẩn phòng tập</div>
   </div>
 
   <div class="controls">
     <select id="modeSelect">
-      <option value="auto" selected>🔥 Tự động chạy liên tục Hiệp 1 ➔ Hiệp 4</option>
-      <option value="1">Chỉ tập riêng Hiệp 1 (Cơ bản & Bộ pháp)</option>
-      <option value="2">Chỉ tập riêng Hiệp 2 (Tổ hợp Đấm + Đá)</option>
-      <option value="3">Chỉ tập riêng Hiệp 3 (Chỏ, Gối & Phòng thủ)</option>
-      <option value="4">Chỉ tập riêng Hiệp 4 (Tổng hợp 50+ bài)</option>
+      <option value="auto" selected>🔥 Tự động chạy Hiệp 1 ➔ Hiệp 4</option>
+      <option value="1">Hiệp 1: Phản xạ, Đòn lẻ & Bộ pháp</option>
+      <option value="2">Hiệp 2: Tổ hợp Đấm + Đá biến hóa</option>
+      <option value="3">Hiệp 3: Chỏ, Gối & Phòng thủ</option>
+      <option value="4">Hiệp 4: Thực chiến tổng hợp</option>
     </select>
 
-    <div class="slider-box">
-      <label for="pauseRange">Nghỉ giữa 2 lệnh: <strong id="pauseVal" style="color:#00e676;">3.0</strong> giây</label>
-      <input type="range" id="pauseRange" min="1.5" max="6" step="0.5" value="3.0" style="width:100%; margin-top:6px; padding:0;">
+    <select id="voiceSelect">
+      <option value="">Đang tải danh sách giọng đọc...</option>
+    </select>
+
+    <div class="slider-grid">
+      <div class="slider-box">
+        <label>Độ trầm (Pitch): <strong id="pitchVal" style="color:#ffd60a;">0.85</strong></label>
+        <input type="range" id="pitchRange" min="0.5" max="1.3" step="0.05" value="0.85" style="width:100%; margin-top:5px;">
+      </div>
+      <div class="slider-box">
+        <label>Tốc độ hô: <strong id="rateVal" style="color:#ffd60a;">1.25</strong>x</label>
+        <input type="range" id="rateRange" min="0.9" max="1.6" step="0.05" value="1.25" style="width:100%; margin-top:5px;">
+      </div>
+    </div>
+
+    <div class="slider-grid">
+      <div class="slider-box">
+        <label>Nghỉ giữa 2 câu: <strong id="pauseVal" style="color:#00e676;">2.5</strong>s</label>
+        <input type="range" id="pauseRange" min="1.0" max="5.0" step="0.5" value="2.5" style="width:100%; margin-top:5px;">
+      </div>
+      <div class="checkbox-row">
+        <label for="padSoundToggle">Tiếng đập Pad</label>
+        <input type="checkbox" id="padSoundToggle" checked style="width:20px; height:20px;">
+      </div>
     </div>
 
     <div class="btn-row">
-      <button class="btn-start" id="startBtn" onclick="startSession()">BẮT ĐẦU BUỔI TẬP</button>
-      <button class="btn-stop" onclick="stopSession()">DỪNG / ĐẶT LẠI</button>
+      <button class="btn-test" onclick="testVoice()">THỬ GIỌNG</button>
+      <button class="btn-start" id="startBtn" onclick="startSession()">BẮT ĐẦU</button>
+      <button class="btn-stop" onclick="stopSession()">DỪNG</button>
     </div>
-  </div>
-
-  <div class="legend">
-    <strong>Quy ước (Thuận tay trái - Chân phải trước):</strong><br>
-    1: Thẳng phải | 2: Thẳng trái | 3: Móc ngang phải<br>
-    4: Móc ngang trái | 5: Móc dưới phải | 6: Móc dưới trái
   </div>
 
   <script>
     const roundNames = {
-      1: "Hiệp 1: Phản xạ, Đòn lẻ & Bộ pháp",
-      2: "Hiệp 2: Tổ hợp Đấm + Đá biến hóa",
-      3: "Hiệp 3: Chỏ, Gối & Phòng thủ phản công",
-      4: "Hiệp 4: Thực chiến tổng hợp toàn diện"
+      1: "Hiệp 1: Phản xạ & Bộ pháp",
+      2: "Hiệp 2: Tổ hợp Đấm + Đá",
+      3: "Hiệp 3: Chỏ, Gối & Phản công",
+      4: "Hiệp 4: Thực chiến tổng hợp"
     };
 
+    // Khẩu lệnh cực ngắn, gắt như thầy hô kèm số nhịp đập Pad (hits)
     const combos = {
       1: [
-        "Một!",
-        "Một, Một!",
-        "Một, Hai!",
-        "Một, một, Hai!",
-        "Đạp chân phải!",
-        "Đạp chân trái!",
-        "Nhấc chân phải đỡ đòn!",
-        "Nhấc chân trái đỡ đòn!",
-        "Một, Hai, Ba!",
-        "Hai, Ba, Hai!",
-        "Bước sang phải, đấm Hai!",
-        "Lùi một bước, Một, Hai!",
-        "Một, cúi đấm Hai vào bụng!",
-        "Hai vào bụng, Ba lên mặt!",
-        "Nhá đạp phải, bước tới Một, Hai!",
-        "Lách đầu sang phải, đấm Hai!"
+        { text: "Một!", hits: 1 },
+        { text: "Một, Một!", hits: 2 },
+        { text: "Một Hai!", hits: 2 },
+        { text: "Một, Một Hai!", hits: 3 },
+        { text: "Đạp phải!", hits: 1 },
+        { text: "Đạp trái!", hits: 1 },
+        { text: "Nhấc chân đỡ!", hits: 1 },
+        { text: "Một Hai Ba!", hits: 3 },
+        { text: "Hai Ba Hai!", hits: 3 },
+        { text: "Bước phải, đấm Hai!", hits: 1 },
+        { text: "Lùi bước, Một Hai!", hits: 2 },
+        { text: "Một, Hai bụng!", hits: 2 },
+        { text: "Hai bụng, Ba mặt!", hits: 2 },
+        { text: "Nhá đạp, Một Hai!", hits: 2 },
+        { text: "Lách đầu, Hai Ba!", hits: 2 }
       ],
       2: [
-        "Một, Hai, Đá chân trái!",
-        "Một, Hai, Đá chân trái hai cái liên tiếp!",
-        "Một, Hai, Ba, Đá thấp chân trái!",
-        "Hai, Ba, Đá giữa chân trái!",
-        "Một, Đá thấp chân phải!",
-        "Đá thấp chân phải, đấm Hai, Ba!",
-        "Một, Hai, Nhảy đổi chân, Đá phải!",
-        "Hai, Ba, Nhảy đổi chân, Đá phải!",
-        "Một, Ba, Đá chân trái!",
-        "Một, Hai, Bốn, Đá thấp chân phải!",
-        "Đạp chân phải, bước tới Hai, Đá trái!",
-        "Nhá đạp phải, đấm Hai, Ba, Đá trái!",
-        "Một, Hai, Đá cao chân trái lên đầu!",
-        "Ba, Hai, Đá chân trái!",
-        "Một, Sáu, Ba, Đá thấp chân trái!",
-        "Năm, Hai, Ba, Đá chân trái!",
-        "Đạp phải, Nhảy đổi chân, Đá phải!",
-        "Một, Hai, Ba, Hai, Đá chân trái!"
+        { text: "Một Hai, Đá trái!", hits: 3 },
+        { text: "Một Hai, Hai cái đá trái!", hits: 4 },
+        { text: "Một Hai Ba, Phá đùi trái!", hits: 4 },
+        { text: "Hai Ba, Đá sườn trái!", hits: 3 },
+        { text: "Một, Phá đùi phải!", hits: 2 },
+        { text: "Đá thấp phải, Hai Ba!", hits: 3 },
+        { text: "Một Hai, Đổi chân đá phải!", hits: 3 },
+        { text: "Hai Ba, Đổi chân đá phải!", hits: 3 },
+        { text: "Một Ba, Đá trái!", hits: 3 },
+        { text: "Một Hai Bốn, Đá phải!", hits: 4 },
+        { text: "Đạp phải! Bước tới Hai, Đá trái!", hits: 3 },
+        { text: "Nhá đạp! Hai Ba, Đá trái!", hits: 3 },
+        { text: "Một Hai, Đá cao trái!", hits: 3 },
+        { text: "Ba Hai, Đá trái!", hits: 3 },
+        { text: "Một Sáu Ba, Phá đùi trái!", hits: 4 }
       ],
       3: [
-        "Một, Hai, Chỏ phải!",
-        "Một, Hai, Chỏ phải, Chỏ trái!",
-        "Một, Hai, Chỏ phải, Gối trái!",
-        "Một, Sáu, Ba, Gối trái!",
-        "Hai, Ba, Gối trái!",
-        "Một, Hai, Nhảy đổi chân, Gối phải!",
-        "Đạp phải, bước tới Hai, Chỏ phải!",
-        "Ôm gáy, thúc Gối trái hai cái!",
-        "Nhấc chân phải đỡ, Hai, Ba, Đá trái!",
-        "Nhấc chân phải đỡ, Hai, Chỏ phải, Gối trái!",
-        "Lùi một bước né, bật tới Hai, Ba, Gối trái!",
-        "Lách đầu sang phải, Hai, Ba, Đá trái!",
-        "Một, Bốn, Chỏ phải, Gối trái!",
-        "Năm, Sáu, Ba, Gối trái!",
-        "Chỏ phải, Chỏ trái, ôm gáy Gối trái!",
-        "Nhấc chân trái đỡ, Ba, Hai, Đá trái!"
+        { text: "Một Hai, Chỏ phải!", hits: 3 },
+        { text: "Một Hai, Chỏ phải, Chỏ trái!", hits: 4 },
+        { text: "Một Hai, Chỏ phải, Gối trái!", hits: 4 },
+        { text: "Một Sáu Ba, Gối trái!", hits: 4 },
+        { text: "Hai Ba, Gối trái!", hits: 3 },
+        { text: "Một Hai, Đổi chân Gối phải!", hits: 3 },
+        { text: "Đạp phải! Bước vào Hai, Chỏ phải!", hits: 3 },
+        { text: "Ôm gáy, Hai cái gối trái!", hits: 2 },
+        { text: "Đỡ chân! Hai Ba, Đá trái!", hits: 3 },
+        { text: "Đỡ chân! Hai, Chỏ phải, Gối trái!", hits: 3 },
+        { text: "Lùi né! Bật vào Hai Ba, Gối trái!", hits: 3 },
+        { text: "Năm Sáu Ba, Gối trái!", hits: 4 },
+        { text: "Chỏ phải, Chỏ trái, Gối trái!", hits: 3 }
       ]
     };
     combos[4] = [...combos[1], ...combos[2], ...combos[3]];
 
-    const WORK_TIME = 180; // 3 phút tập
-    const REST_TIME = 60;  // 1 phút nghỉ
-    const PREP_TIME = 10;  // 10 giây chuẩn bị đeo găng
+    const WORK_TIME = 180;
+    const REST_TIME = 60;
+    const PREP_TIME = 10;
 
     let currentRound = 1;
-    let totalRounds = 4;
     let isAutoMode = true;
-    let phase = "IDLE"; // IDLE, PREP, WORK, REST
+    let phase = "IDLE";
     let timeLeft = WORK_TIME;
     let deck = [];
     let countDone = 0;
@@ -252,64 +260,94 @@
     let comboTimeout = null;
     let isRunning = false;
     let audioCtx = null;
-    let wakeLock = null;
 
-    const pauseRange = document.getElementById('pauseRange');
-    const pauseVal = document.getElementById('pauseVal');
-    pauseRange.addEventListener('input', (e) => {
-      pauseVal.textContent = e.target.value;
-    });
+    // Cập nhật hiển thị thanh trượt
+    document.getElementById('pitchRange').oninput = (e) => document.getElementById('pitchVal').textContent = e.target.value;
+    document.getElementById('rateRange').oninput = (e) => document.getElementById('rateVal').textContent = e.target.value;
+    document.getElementById('pauseRange').oninput = (e) => document.getElementById('pauseVal').textContent = e.target.value;
 
-    // Giữ màn hình điện thoại luôn sáng
-    async function requestWakeLock() {
-      try {
-        if ('wakeLock' in navigator) {
-          wakeLock = await navigator.wakeLock.request('screen');
-        }
-      } catch (e) {}
-    }
+    // Load danh sách giọng đọc tiếng Việt trong máy
+    function loadVoices() {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      const select = document.getElementById('voiceSelect');
+      const viVoices = voices.filter(v => v.lang.includes('vi') || v.lang.includes('VN'));
 
-    function releaseWakeLock() {
-      if (wakeLock !== null) {
-        wakeLock.release().then(() => { wakeLock = null; });
+      select.innerHTML = '';
+      if (viVoices.length === 0) {
+        const opt = document.createElement('option');
+        opt.value = "";
+        opt.textContent = "Giọng Tiếng Việt mặc định của máy";
+        select.appendChild(opt);
+      } else {
+        viVoices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = v.name;
+          opt.textContent = `Giọng đọc ${idx + 1}: ${v.name}`;
+          select.appendChild(opt);
+        });
       }
     }
-
-    function updateDots() {
-      for (let i = 1; i <= 4; i++) {
-        const dot = document.getElementById('dot' + i);
-        dot.className = 'dot';
-        if (i < currentRound) dot.classList.add('done');
-        else if (i === currentRound && phase !== "IDLE") dot.classList.add('active');
-      }
+    if ('speechSynthesis' in window) {
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
     }
 
-    function shuffleDeck(roundNum) {
-      deck = [...combos[roundNum]];
-      for (let i = deck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]];
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+    }
+
+    // Tạo tiếng đập Pad "BỐP!" bằng Web Audio Synthesizer
+    function playPadHits(count, callback) {
+      if (!document.getElementById('padSoundToggle').checked) {
+        if (callback) callback();
+        return;
       }
+      initAudio();
+      const interval = 320; // Khoảng cách giữa các cú đấm (ms)
+      for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+          if (!isRunning && phase !== "IDLE") return;
+          // Tạo tiếng trầm của bao da + tiếng tạch của găng
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          // Cú cuối cùng (thường là cú đá/gối) nghe trầm và nặng hơn
+          const isHeavy = (i === count - 1 && count >= 3);
+          osc.frequency.setValueAtTime(isHeavy ? 130 : 180, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 0.12);
+
+          gain.gain.setValueAtTime(isHeavy ? 0.9 : 0.65, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.12);
+        }, 250 + i * interval);
+      }
+      setTimeout(() => {
+        if (callback) callback();
+      }, 250 + count * interval);
     }
 
     function playBell(times = 1) {
-      try {
-        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        for (let i = 0; i < times; i++) {
-          setTimeout(() => {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(880, audioCtx.currentTime);
-            gain.gain.setValueAtTime(0.65, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.75);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + 0.75);
-          }, i * 350);
-        }
-      } catch (e) {}
+      initAudio();
+      for (let i = 0; i < times; i++) {
+        setTimeout(() => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.6, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.7);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.7);
+        }, i * 350);
+      }
     }
 
     function speak(text, callback) {
@@ -320,21 +358,49 @@
       window.speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'vi-VN';
-      utter.rate = 1.12;
+      utter.pitch = parseFloat(document.getElementById('pitchRange').value);
+      utter.rate = parseFloat(document.getElementById('rateRange').value);
 
+      const selectedVoiceName = document.getElementById('voiceSelect').value;
       const voices = window.speechSynthesis.getVoices();
-      const viVoice = voices.find(v => v.lang.includes('vi') || v.lang.includes('VN'));
-      if (viVoice) utter.voice = viVoice;
+      const chosen = voices.find(v => v.name === selectedVoiceName) || voices.find(v => v.lang.includes('vi') || v.lang.includes('VN'));
+      if (chosen) utter.voice = chosen;
 
-      utter.onend = () => { if (callback && isRunning) callback(); };
-      utter.onerror = () => { if (callback && isRunning) callback(); };
+      utter.onend = () => { if (callback) callback(); };
+      utter.onerror = () => { if (callback) callback(); };
       window.speechSynthesis.speak(utter);
+    }
+
+    function testVoice() {
+      initAudio();
+      const sample = { text: "Một Hai Ba, Phá đùi trái!", hits: 4 };
+      document.getElementById('comboDisplay').textContent = sample.text;
+      speak(sample.text, () => {
+        playPadHits(sample.hits);
+      });
+    }
+
+    function shuffleDeck(roundNum) {
+      deck = [...combos[roundNum]];
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
     }
 
     function updateTimerDisplay() {
       const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
       const s = String(timeLeft % 60).padStart(2, '0');
       document.getElementById('timer').textContent = `${m}:${s}`;
+    }
+
+    function updateDots() {
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById('dot' + i);
+        dot.className = 'dot';
+        if (i < currentRound) dot.classList.add('done');
+        else if (i === currentRound && phase !== "IDLE") dot.classList.add('active');
+      }
     }
 
     function setUIState(badgeText, badgeClass, titleText, boxRestMode) {
@@ -348,11 +414,10 @@
       updateDots();
     }
 
-    // Bắt đầu toàn bộ buổi tập (Bắt đầu bằng 10s chuẩn bị)
     function startSession() {
       if (isRunning) return;
+      initAudio();
       isRunning = true;
-      requestWakeLock();
 
       const mode = document.getElementById('modeSelect').value;
       if (mode === 'auto') {
@@ -363,9 +428,8 @@
         currentRound = parseInt(mode);
       }
 
-      document.getElementById('startBtn').textContent = "ĐANG CHẠY TỰ ĐỘNG...";
+      document.getElementById('startBtn').textContent = "ĐANG TẬP...";
       startPrepPhase();
-
       timerInterval = setInterval(tick, 1000);
     }
 
@@ -375,8 +439,7 @@
       updateTimerDisplay();
       setUIState("CHUẨN BỊ XỎ GĂNG", "status-prep", roundNames[currentRound], true);
       document.getElementById('comboDisplay').textContent = "10 giây chuẩn bị! Xỏ găng vào!";
-      document.getElementById('comboCount').textContent = "Tư thế: Chân phải trước - Chân trái sau";
-      speak(`Chuẩn bị vào hiệp ${currentRound}. Bạn có mười giây để xỏ găng!`);
+      speak(`Chuẩn bị hiệp ${currentRound}. Mười giây xỏ găng!`);
     }
 
     function startWorkPhase() {
@@ -387,12 +450,11 @@
       updateTimerDisplay();
       playBell(1);
 
-      setUIState(`ĐANG TẬP HIỆP ${currentRound} / 4`, "status-work", roundNames[currentRound], false);
+      setUIState(`HIỆP ${currentRound} / 4`, "status-work", roundNames[currentRound], false);
       document.getElementById('comboDisplay').textContent = "Thủ cao tay! Nhún nhảy!";
-      document.getElementById('comboCount').textContent = `Đã trộn ${deck.length} combo cho hiệp này`;
 
-      speak(`Hiệp ${currentRound}, bắt đầu! Thủ cao hai tay lên!`, () => {
-        comboTimeout = setTimeout(nextCombo, 1000);
+      speak(`Hiệp ${currentRound}! Thủ cao tay!`, () => {
+        if (isRunning) comboTimeout = setTimeout(nextCombo, 800);
       });
     }
 
@@ -404,11 +466,9 @@
       playBell(2);
 
       const nextRound = currentRound + 1;
-      setUIState(`NGHỈ GIẢI LAO (1 PHÚT)`, "status-rest", `Chuẩn bị sang Hiệp ${nextRound}`, true);
-      document.getElementById('comboDisplay').textContent = "Thả lỏng vai, đi lại và hít thở sâu!";
-      document.getElementById('comboCount').textContent = `Tiếp theo: ${roundNames[nextRound]}`;
-
-      speak(`Hết hiệp ${currentRound}! Quá tốt! Nghỉ một phút, thả lỏng vai và hít thở sâu!`);
+      setUIState(`NGHỈ 1 PHÚT`, "status-rest", `Tiếp theo: Hiệp ${nextRound}`, true);
+      document.getElementById('comboDisplay').textContent = "Thả lỏng vai, hít thở sâu!";
+      speak(`Hết hiệp ${currentRound}! Nghỉ một phút, hít thở sâu!`);
     }
 
     function tick() {
@@ -416,21 +476,16 @@
       timeLeft--;
       updateTimerDisplay();
 
-      // Đếm ngược 3 giây cuối trước khi vào hiệp
-      if ((phase === "PREP" || phase === "REST") && timeLeft === 10 && phase === "REST") {
-        document.getElementById('comboDisplay').textContent = "Còn 10 giây! Thủ thế chuẩn bị!";
-        speak(`Còn mười giây! Chuẩn bị vào hiệp ${currentRound + 1}!`);
+      if (phase === "REST" && timeLeft === 10) {
+        document.getElementById('comboDisplay').textContent = "10 giây nữa vào hiệp mới!";
+        speak(`Mười giây! Chuẩn bị hiệp ${currentRound + 1}!`);
       }
 
       if (timeLeft <= 0) {
-        if (phase === "PREP") {
-          startWorkPhase();
-        } else if (phase === "WORK") {
-          if (isAutoMode && currentRound < totalRounds) {
-            startRestPhase();
-          } else {
-            finishAllSession();
-          }
+        if (phase === "PREP") startWorkPhase();
+        else if (phase === "WORK") {
+          if (isAutoMode && currentRound < 4) startRestPhase();
+          else finishAllSession();
         } else if (phase === "REST") {
           currentRound++;
           startWorkPhase();
@@ -440,33 +495,21 @@
 
     function nextCombo() {
       if (!isRunning || phase !== "WORK") return;
-
-      if (timeLeft <= 28 && timeLeft >= 23 && !deck.warned30s) {
-        deck.warned30s = true;
-        document.getElementById('comboDisplay').textContent = "30 GIÂY CUỐI! BUNG HẾT SỨC!";
-        speak("Ba mươi giây cuối! Đánh nhanh và mạnh hơn!", () => {
-          comboTimeout = setTimeout(triggerNextFromDeck, 700);
-        });
-        return;
-      }
-
-      triggerNextFromDeck();
-    }
-
-    function triggerNextFromDeck() {
-      if (!isRunning || phase !== "WORK") return;
       if (deck.length === 0) shuffleDeck(currentRound);
 
-      const currentCombo = deck.pop();
+      const item = deck.pop();
       countDone++;
 
-      document.getElementById('comboDisplay').textContent = currentCombo;
-      document.getElementById('comboCount').textContent = `Hiệp ${currentRound} • Lệnh số ${countDone}`;
+      document.getElementById('comboDisplay').textContent = item.text;
+      document.getElementById('comboCount').textContent = `Hiệp ${currentRound} • Lệnh số ${countDone} (${item.hits} nhịp)`;
 
-      speak(currentCombo, () => {
+      speak(item.text, () => {
         if (!isRunning || phase !== "WORK") return;
-        const pauseMs = parseFloat(pauseRange.value) * 1000;
-        comboTimeout = setTimeout(nextCombo, pauseMs);
+        playPadHits(item.hits, () => {
+          if (!isRunning || phase !== "WORK") return;
+          const pauseMs = parseFloat(document.getElementById('pauseRange').value) * 1000;
+          comboTimeout = setTimeout(nextCombo, pauseMs);
+        });
       });
     }
 
@@ -475,14 +518,12 @@
       phase = "IDLE";
       clearInterval(timerInterval);
       clearTimeout(comboTimeout);
-      releaseWakeLock();
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       timeLeft = WORK_TIME;
       updateTimerDisplay();
-      setUIState("ĐÃ DỪNG", "", "CHẾ ĐỘ TỰ ĐỘNG 4 HIỆP (RẢNH TAY)", false);
-      document.getElementById('startBtn').textContent = "BẮT ĐẦU BUỔI TẬP";
-      document.getElementById('comboDisplay').textContent = "Đã đặt lại. Bấm BẮT ĐẦU để tập!";
-      document.getElementById('comboCount').textContent = "Có 10 giây chuẩn bị trước khi vào Hiệp 1";
+      setUIState("ĐÃ DỪNG", "", "HLV MUAY THÁI - KHẨU LỆNH GẮT", false);
+      document.getElementById('startBtn').textContent = "BẮT ĐẦU";
+      document.getElementById('comboDisplay').textContent = "Đã dừng. Bấm BẮT ĐẦU để tập lại!";
     }
 
     function finishAllSession() {
@@ -490,24 +531,13 @@
       phase = "IDLE";
       clearInterval(timerInterval);
       clearTimeout(comboTimeout);
-      releaseWakeLock();
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       playBell(3);
-
-      for (let i = 1; i <= 4; i++) {
-        document.getElementById('dot' + i).className = 'dot done';
-      }
-
-      setUIState("HOÀN THÀNH XUẤT SẮC", "status-rest", "ĐÃ XONG TOÀN BỘ 4 HIỆP!", true);
-      document.getElementById('startBtn').textContent = "TẬP LẠI TỪ ĐẦU";
-      document.getElementById('comboDisplay').textContent = "TUYỆT VỜI! BẠN ĐÃ HOÀN THÀNH BUỔI TẬP!";
-      document.getElementById('comboCount').textContent = "Nhớ giãn cơ chân và hông 5 phút nhé!";
-      speak("Hết giờ! Chúc mừng bạn đã hoàn thành xuất sắc bốn hiệp tập! Hãy tháo găng, uống nước và giãn cơ nhé!");
+      setUIState("HOÀN THÀNH", "status-rest", "XONG 4 HIỆP!", true);
+      document.getElementById('startBtn').textContent = "TẬP LẠI";
+      document.getElementById('comboDisplay').textContent = "TUYỆT VỜI! XONG BUỔI TẬP!";
+      speak("Hết giờ! Hoàn thành bốn hiệp! Giãn cơ nhé!");
       timeLeft = WORK_TIME;
-    }
-
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
     }
   </script>
 </body>
